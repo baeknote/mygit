@@ -62,7 +62,7 @@ io.on("connection", (socket) => {
       const user = users.find((x) => x.name === message.to && x.online);
       if (user) {
         io.to(user.socketId).emit("message", message);
-        user.message.push(message);
+        user.messages.push(message);
       } else {
         io.to(socket.id).emit("message", {
           from: "System",
@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
         io.to(admin.socketId).emit("message", message);
         const user = users.find((x) => x.name === message.from && x.online);
         if (user) {
-          user.message.push(message);
+          user.messages.push(message);
         }
       } else {
         io.to(socket.id).emit("message", {

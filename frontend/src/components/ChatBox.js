@@ -17,7 +17,7 @@ export default function ChatBox() {
   const uiMessagesRef = useRef(null);
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([
-    { from: "System", body: "안녕하세요, 질문하실게 있으신가요?" },
+    { from: "System", body: "안녕하세요, 문의사항이 있다면 말씀주세요." },
   ]);
   const [socket, setSocket] = useState(null);
 
@@ -77,7 +77,7 @@ export default function ChatBox() {
     <div className="chatbox">
       {!isOpen ? (
         <Button onClick={supportHandler} variant="primary">
-          Chat with us
+          문의사항
         </Button>
       ) : (
         <Card>
